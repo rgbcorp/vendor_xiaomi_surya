@@ -19,6 +19,25 @@
 soong_namespace {
 }
 
+cc_prebuilt_library_shared {
+	name: "libantradio",
+	owner: "xiaomi",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/system_ext/lib/libantradio.so"],
+		},
+		android_arm64: {
+			srcs: ["proprietary/system_ext/lib64/libantradio.so"],
+		},
+	},
+    check_elf_files: false,
+	compile_multilib: "both",
+	prefer: true,
+}
+
 android_app_import {
 	name: "SoterService",
 	owner: "xiaomi",
